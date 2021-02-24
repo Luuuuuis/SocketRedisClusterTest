@@ -3,7 +3,7 @@ A test of scaling a simple websocket server written in Java and can be deployed 
 
 To build this reposetory use <code>docker build -t socketserver .</code>.
 
-##Can locally be deployed in two different ways (known to me):
+## Can locally be deployed in two different ways (known to me):
 ### Docker Swarm
 To init docker swarm for the first time: <code>docker swarm init</code>. 
 
