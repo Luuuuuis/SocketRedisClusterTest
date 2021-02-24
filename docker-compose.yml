@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+    redis:
+        image: redis
+        command: redis-server --requirepass yeet
+        networks:
+            - web
+        ports:
+            - "6379:6379"
+    loadbalancer:
+        image: dockercloud/haproxy
+        environment:
+            - BALANCE=leastconn
+        ports:
+            - "8080:80"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        depends_on:
+            - ws
+            - redis
+        networks:
+            - web
+    ws:
+        image: socketserver
+        depends_on:
+            - redis
+        environment:
+            - SERVICE_PORTS=666
+        networks:
+            - web
+
+networks:
+    web:
+        driver: overlay
