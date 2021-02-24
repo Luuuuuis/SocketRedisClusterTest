@@ -13,4 +13,4 @@ Delete this service using <code>docker service rm [NAME]</code>
 
 ## Kubernetes Engine on Google Cloud
 Follow the tutorial on their official site. https://console.cloud.google.com/kubernetes/
-A nice sample is provided by them on [URL=https://github.com/GoogleCloudPlatform/kubernetes-engine-samples]GitHub[/URL]
+A nice sample is provided by them on [GitHub](https://github.com/GoogleCloudPlatform/kubernetes-engine-samples)
