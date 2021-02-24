@@ -1,8 +1,6 @@
-FROM openjdk:14
-FROM maven:3.5-jdk-8-alpine as builder
+FROM maven:3.6-jdk-14 as builder
 
 WORKDIR /app
-
 
 COPY pom.xml ./
 COPY src ./src/
@@ -10,7 +8,10 @@ COPY src ./src/
 # Build a release artifact.
 RUN mvn package -DskipTests
 
-# Copy the jar to the production image from the builder stage.
-COPY --from=builder /app/target/SocketRedisCluterTest-*.jar /SocketRedisCluterTest.jar
+FROM openjdk:14
 
-CMD ["java","-Djava.security.egd=file:/dev/./urandom", "-jar", "/SocketRedisCluterTest.jar"]
+# Copy the jar to the production image from the builder stage.
+COPY --from=builder /app/target/SocketRedisClusterTest-1.0-SNAPSHOT-jar-with-dependencies.jar /SocketRedisClusterTest.jar
+
+
+CMD ["java","-Djava.security.egd=file:/dev/./urandom", "-jar", "/SocketRedisClusterTest.jar"]
