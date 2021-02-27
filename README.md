@@ -28,3 +28,8 @@ Connectings will be handled under the port 8443 so you can connect using <code>w
 
 ## SSL
 You can obtain a SSL certificate either with LetsEncrypt or using CloudFlare. Either way you have to edit the [docker-compose.yml](https://github.com/Luuuuuis/SocketRedisClusterTest/blob/master/docker-compose.yml) to add your private key and your certificate like shown. [This](https://stackoverflow.com/a/29778381/10011954) may help you creating the string.
+
+
+Can scale ;)
+![image](https://user-images.githubusercontent.com/45736619/109400896-b02a4380-794b-11eb-8e08-854927107f0f.png)
+
