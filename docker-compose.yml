@@ -13,7 +13,7 @@ services:
             - "TIMEOUT=client 1000s, server 1000s"
             - "STATS_AUTH=test:test"
             - "STATS_PORT=2096"
-            - "DEFAULT_SSL_CERT=-----BEGIN PRIVATE KEY-----\nPRIVATE KEY HERE\n-----END PRIVATE KEY-----\n-----BEGIN CERTIFICATE-----\nPUBLIC KEY HERE\n-----END CERTIFICATE-----\n"
+#            - "DEFAULT_SSL_CERT=-----BEGIN PRIVATE KEY-----\nPRIVATE KEY HERE\n-----END PRIVATE KEY-----\n-----BEGIN CERTIFICATE-----\nPUBLIC KEY HERE\n-----END CERTIFICATE-----\n"
         ports:
             - "8443:443"
             - "2096:2096"
