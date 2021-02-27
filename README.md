@@ -24,5 +24,8 @@ Docker Compose does NOT work due to network limitations
 
 ## Usage
 When deploying loacally you can access the websocket via any [webbrowser](https://www.piesocket.com/websocket-tester) or application that supports websockets.
-Connectings will be handled under the port 8080 so you can connect using <code>ws://localhost:8080</code>. Port is editable in the [docker-compose.yml](https://github.com/Luuuuuis/SocketRedisClusterTest/blob/master/docker-compose.yml). So is timeout of HAProxy. The [haproxy.cfg](https://github.com/Luuuuuis/SocketRedisClusterTest/blob/master/haproxy/haproxy.cfg) is there just in case you want to add & edit it manually, though not in use with the 
+Connectings will be handled under the port 8443 so you can connect using <code>ws://localhost:8443</code>. Port is editable in the [docker-compose.yml](https://github.com/Luuuuuis/SocketRedisClusterTest/blob/master/docker-compose.yml). So is timeout of HAProxy. The [haproxy.cfg](https://github.com/Luuuuuis/SocketRedisClusterTest/blob/master/haproxy/haproxy.cfg) is there just in case you want to add & edit it manually, though not in use with the 
 dockercloud/haproxy image.
+
+## SSL
+You can obtain a SSL certificate either with LetsEncrypt or using CloudFlare. Either way you have to edit the [docker-compose.yml](https://github.com/Luuuuuis/SocketRedisClusterTest/blob/master/docker-compose.yml) to add your private key and your certificate like shown.
