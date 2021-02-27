@@ -6,14 +6,17 @@ services:
         command: redis-server --requirepass yeet
         networks:
             - web
-        ports:
-            - "6379:6379"
     loadbalancer:
         image: dockercloud/haproxy
         environment:
-            - BALANCE=leastconn
+            - "BALANCE=leastconn"
+            - "TIMEOUT=client 1000s, server 1000s"
+            - "STATS_AUTH=test:test"
+            - "STATS_PORT=2096"
+            - "DEFAULT_SSL_CERT=-----BEGIN PRIVATE KEY-----\nPRIVATE KEY HERE\n-----END PRIVATE KEY-----\n-----BEGIN CERTIFICATE-----\nPUBLIC KEY HERE\n-----END CERTIFICATE-----\n"
         ports:
-            - "8080:80"
+            - "8443:443"
+            - "2096:2096"
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
         depends_on:

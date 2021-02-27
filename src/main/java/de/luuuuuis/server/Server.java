@@ -7,15 +7,9 @@ import org.java_websocket.server.WebSocketServer;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
 
-import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableKeyException;
-import java.security.cert.CertificateException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,26 +63,8 @@ public class Server extends WebSocketServer {
         new Thread(() -> subJedis.subscribe(jedisPubSub, "test"), "subscriber").start();
     }
 
-    public static void main(String[] args) throws KeyStoreException, CertificateException, NoSuchAlgorithmException, IOException, KeyManagementException, UnrecoverableKeyException {
+    public static void main(String[] args) {
         Server server = new Server(PORT);
-
-//        // load up the key store
-//        final String PASSWORD = "asodjlbhaszipdfaszipdgajsoudZ/(3grzGSz";
-//
-//        KeyStore ks = KeyStore.getInstance("JKS");
-//        ks.load(Server.class.getClassLoader().getResourceAsStream("luis.team.ks"), PASSWORD.toCharArray());
-//
-//        KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
-//        kmf.init(ks, PASSWORD.toCharArray());
-//        TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509");
-//        tmf.init(ks);
-//
-//        SSLContext sslContext;
-//        sslContext = SSLContext.getInstance("TLS");
-//        sslContext.init(kmf.getKeyManagers(), tmf.getTrustManagers(), null);
-//
-//        server.setWebSocketFactory(new DefaultSSLWebSocketServerFactory(sslContext));
-
         server.start();
     }
 
@@ -129,7 +105,7 @@ public class Server extends WebSocketServer {
 
     @Override
     public void onError(WebSocket webSocket, Exception e) {
-
+        e.printStackTrace();
     }
 
     @SneakyThrows
